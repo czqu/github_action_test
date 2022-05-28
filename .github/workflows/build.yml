@@ -14,7 +14,7 @@ jobs:
           token: ${{ secrets.GH_PAT }} # `GH_PAT` is a secret that contains your PAT
           path: lib-net
           ref: master
-      - uses: numworks/setup-arm-toolchain@2020-q2
+      - run: sudo apt-get install -y gcc-arm-linux-gnueabihf
       - uses: actions/setup-go@v3
         with:
           go-version: '1.18.2'
