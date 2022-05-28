@@ -14,7 +14,7 @@ jobs:
           token: ${{ secrets.GH_PAT }} # `GH_PAT` is a secret that contains your PAT
           path: lib-net
           ref: master
-      - run: cd $GITHUB_WORKSPACE/lib-net
+      - run: cd $GITHUB_WORKSPACE/lib-net/lib-net
       - run: ls
       - run: CGO_ENABLED=1 GOOS=linux  GOARCH=amd64 CC=x86_64-w64-mingw32-gcc  CGO_LDFLAGS="-static" go build -a -v
       - run: ls
