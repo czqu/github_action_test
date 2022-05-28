@@ -14,13 +14,13 @@ jobs:
           token: ${{ secrets.GH_PAT }} # `GH_PAT` is a secret that contains your PAT
           path: lib-net
           ref: master
-      - run: sudo apt-get install -y gcc-arm-linux-gnueabihf
+      - run: sudo apt-get install -y gcc-aarch64-linux-gnu
       - uses: actions/setup-go@v3
         with:
           go-version: '1.18.2'
           cache: true
           cache-dependency-path: lib-net/go.sum
-      - run: cd $GITHUB_WORKSPACE/lib-net/ && CGO_ENABLED=1 GOOS=linux  CC=arm-linux-gnueabihf-gcc GOARCH=amd64   CGO_LDFLAGS="-static" go build -a -v
+      - run: cd $GITHUB_WORKSPACE/lib-net/ && CGO_ENABLED=1 GOOS=linux  CC=gcc-aarch64-linux-gnu GOARCH=amd64   CGO_LDFLAGS="-static" go build -a -v
       - run: ls $GITHUB_WORKSPACE/lib-net/
      # - uses: actions/setup-go@v2
       #  with:
