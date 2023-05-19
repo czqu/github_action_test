@@ -10,10 +10,10 @@ jobs:
       - name: Checkout lib-net
         uses: actions/checkout@v3
         with:
-          repository: czqu/rfu-net-lib
+          repository: voidbytes/rfu-net-lib
           token: ${{ secrets.GH_PAT }} # `GH_PAT` is a secret that contains your PAT
           path: lib-net
-          ref: master
+          ref: dev
       - run: sudo apt-get install -y gcc-aarch64-linux-gnu
       - uses: actions/setup-go@v3
         with:
